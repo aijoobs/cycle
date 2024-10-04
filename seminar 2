@@ -1,0 +1,141 @@
+#include <stdio.h>
+
+int cv2_prva() {
+    int a, b, min;
+    
+    printf("Zadaj dve cisla oddelene medzerou: ");
+    scanf("%d %d", &a, &b);
+    
+    printf("a) vacsie z cisel %d a %d je %d\n", a, b, (a>b) ? a : b);
+
+    if (a < b) {
+        min = a;
+    }
+    else {
+        min = b;
+    }
+    
+    printf("b) mensie z cisel %d a %d je %d\n", a, b, min);
+}
+
+int cv2_druha() {
+    int ch;
+    
+    printf("Zadaj jeden znak: ");
+    ch = getchar();
+    
+    printf("Na vstupe je: ");
+    
+    if (ch>='a' && ch<='z') printf("male  pismeno");
+    else if (ch>='A' && ch<='Z') printf("velke pismeno");
+    else if (ch>='0' && ch<='9') printf("cislo");
+    else printf("ine pismeno");
+    printf("\n");
+}
+
+int cv2_tretia() {
+    int ch;
+    
+    printf("zadaj jeden znak: ");
+    ch = getchar();
+    
+    printf("znak %c na vstupe ma ASCII hodnotu %d, alebo aj %x Hexa\n", ch, ch, ch);
+    if (ch>='a' && ch<='z') {
+        ch+=('A' - 'a');
+        printf("male pismeno bolo zmeneno na velke %c.\n", ch);
+        printf("ktore ma ASCII hodnotu %d, alebo aj %x Hexa\n", ch, ch);
+    }
+}
+
+int cv2_stvrta() {
+    float f, c;
+    
+    printf("Zadajte stupny Farenheita: ");
+    scanf("%f", &f);
+    
+    c = (f-32)*5.0/9.0;
+    
+    printf("Teplota v stupnoch celzia: %.2f\n", c);
+    
+    if (c <= 0.0) printf("Mrzne");
+    else if (c >= 100.0) printf("Vrie");
+    printf("\n");
+}
+
+int cv2_piata() {
+    int a, b, c, min;
+    
+    printf("Zadajte 3 cisla: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    if (a < b && a < c) 
+    min = a;
+    else if (b < c && b < a)
+    min = b;
+    else if (c < a && c < b)
+    min = c;
+    
+    printf("Najmensie cislo z %d %d %d je: %d\n", a, b, c, min);
+}
+
+int cv2_siesta() {
+    int a, b, c;
+    
+    printf("Zadajte 3 cele cisla: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    printf("Usporiadany vysledok: ");
+    if (a<b && b<c) 
+    printf("%d %d %d", a, b, c);
+    else if (b<a && a<c)
+    printf("%d %d %d", b, a, c);
+    else if (a<b && b<c)
+    printf("%d %d %d", a, c, b);
+    else if (b<c && c<a)
+    printf("%d %d %d", b, c, a);
+    else if (c<a && a<b)
+    printf("%d %d %d", c, a, b);
+    else
+    printf("%d %d %d", c, b, a);
+    printf("\n");
+    
+}
+
+int cv2_siedma() {
+    char a, b, c;
+    
+    printf("Zadajte 3 pismena: ");
+    scanf("%c %c %c", &a, &b, &c);
+    
+    printf("Hodnotie: ");
+    if (a == b && a == c && b == c)
+    printf("Vsetky pismena su rovnake");
+    else if (a != b && a != c && b != c)
+    printf("Vsetke pismena su rozne");
+    else
+    printf("Dva pismena su rovnake");
+    
+    printf("\n");
+}
+
+int cv2_osma() {
+    float height, weight, bmi;
+    
+    printf("Zadajte vysku v CM a hmotnost v KG: ");
+    scanf("%f %f", &height, &weight);
+    
+    bmi = weight / (height*height/10000.0);
+    printf("BMI je: %.3f\n", bmi);
+    
+    if (bmi <= 18.5) printf("Podvaha");
+    else if (bmi < 25) printf("Normalna hmotnoat");
+    else if (bmi < 30) printf("Nadvaha");
+    else if (bmi >= 30) printf("Obezita");
+}
+
+int main()
+{
+    cv2_osma();
+
+    return 0;
+}
