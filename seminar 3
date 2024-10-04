@@ -1,0 +1,149 @@
+#include <stdio.h>
+
+int cv3_prva() {
+    int n, pocet_zapornych = 0, pocet_v_rozsahu = 0;
+    double cislo, suma_zapornych = 0.0, max_kladne = 0.0;
+    int bolo_kladne = 0; 
+
+    printf("Zadajte počet realnych cisel: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        printf("Zadajte %d.: ", i + 1);
+        scanf("%lf", &cislo);
+
+        if (cislo < 0) {
+            suma_zapornych += cislo;
+            pocet_zapornych++;
+        }
+
+        if (cislo >= 0) {
+            if (!bolo_kladne || cislo > max_kladne) {
+                max_kladne = cislo;
+                bolo_kladne = 1;
+            }
+        }
+
+        if (cislo >= -5.5 && cislo <= 5.5) {
+            pocet_v_rozsahu++;
+        }
+    }
+
+    double priemer_zapornych = 0.0;
+    if (pocet_zapornych > 0) {
+        priemer_zapornych = suma_zapornych / pocet_zapornych;
+    }
+
+    printf("Priemer zapornych cisel: %.2lf\n", priemer_zapornych);
+    printf("Najvacsie kladne cislo: %.2lf\n", bolo_kladne ? max_kladne : 0.0);
+    printf("Pocet cisel v rozsahu <-5.5, 5.5>: %d\n", pocet_v_rozsahu);
+    
+    
+}
+
+int cv3_druha() {
+    int small=0, big=0, digit=0;
+    char znak;
+    
+    printf("Zadajte retazec: ");
+    
+    while ((znak = getchar()) != '\n') {
+        if (znak >= 'a' && znak <= 'z') {
+            small++;
+        }
+        
+        if (znak >= 'A' && znak <= 'Z') {
+            big++;
+        }
+        
+        if (znak >= '1' && znak <= '9') {
+            digit++;
+        }
+    }
+    
+    printf("Male: %d\n", small);
+    printf("Velke: %d\n", big);
+    printf("Cisla: %d\n", digit);
+}
+
+
+int cv3_tretia() {
+int F, G, D;
+
+    printf("Zadajte hranice intervalu a delitel: ");
+    scanf("%d %d %d", &F, &G, &D);
+
+    printf("V intervale <%d, %d> su delitelne cislom %d cisla: ", F, G, D);
+
+    for (int i = F; i <= G; i++) {
+        if (i % D == 0) {
+            printf("%d ", i);  
+        }
+    }
+
+    printf("\n");
+} 
+
+int cv3_stvrta() {
+    int i, j, n;
+    
+    printf("Zadajte cislo n: ");
+    scanf("%d", &n);
+    
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            printf("* ");   
+        }
+        printf("\n");
+    }
+}
+
+int cv3_piata() {
+    int i, j, n;
+    
+    printf("Zdajte cislo n pre (*): ");
+    scanf("%d", &n);
+    
+    for(i=0; i<n; i++) {
+        for(j=0; j<n; j++) {
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1) {
+            printf("+ ");
+          }  else {
+            printf("* ");
+            }
+        }
+            printf("\n");
+    }
+}
+
+
+int cv3_sesta() {
+    int i, j, n;
+    
+    printf("Zadajte cislo pre (*): ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            if ((i % 2 == 0 && j % 2 == 1) ||
+            (i % 2 == 1 && j % 2 == 0)) {
+                printf("* ");
+            } else {
+                printf("+ ");
+            }
+        }
+        printf("\n"); 
+    }
+}
+
+int main()
+{
+    cv3_prva();
+    cv3_druha();
+    cv3_tretia();
+    cv3_stvrta();
+    cv3_piata();
+    cv3_sesta();
+    
+    return 0;
+}
