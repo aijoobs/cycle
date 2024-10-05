@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+int cv1_1() {
+    printf("\"\tSu vsetky tieti [*,&,/,\,$,%,'] znaky specialne ?\"\n");
+}
+
+int cv1_2() {
+    int a, b, c, volume, surface;
+    
+    printf("Zadaj 3 cele cisla: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    volume = a * b * c;
+    surface = b * c * b + b * c * a + b * b * a;
+    
+    printf("Objem %d x %d x %d je %d\n", a, b, c, volume);
+    printf("Povrch %d x %d x %d + %d x %d x %d + %d x %d x %d je %d", b, c, b, b, c, a, b, b, a, surface);
+}
+
+
+int cv1_3() {
+    float circumference, area, radius;
+    
+    printf("Zadaj polomer kruhu (realne cislo): ");
+    scanf("%f", &radius);
+    
+    circumference = 2*3.14*radius;
+    area = 3.14*radius*radius;
+    
+    printf("Kruh s polomerom %.2f: obvod = %.2f, obsah = %.2f\n", radius, circumference, area);
+}
+
+int cv1_4() {
+    float a, dph;
+    
+    printf("Zadaj cislo: ");
+    scanf("%f", &a);
+    
+    dph = a + ((a / 100)*20);
+    
+    printf("Cena bez dane: %.f\n", a);
+    printf("Predajna cena s danou 20%: %.1f\n", dph);
+}
+
+int cv1_5() {
+    float height, weight, bmi;
+    
+    printf("Zadajte vysku v centimetroch: ");
+    scanf("%f", &height);
+    printf("Zadajte hmotnost v kilogramoch: ");
+    scanf("%f", &weight);
+    
+    bmi = weight / (height*height/10000.0);
+    
+    printf("BMI: %.3f\n", bmi);
+}
+
+
+int main()
+{
+    cv1_1();
+    cv1_2();
+    cv1_3();
+    cv1_4();
+    cv1_5();
+
+    return 0;
+}
